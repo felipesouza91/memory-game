@@ -886,6 +886,11 @@
     "@eslint/core" "^0.17.0"
     levn "^0.4.1"
 
+"@expo-google-fonts/baloo-2@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/baloo-2/-/baloo-2-0.4.2.tgz#e63212c7ad45e40e57c8b1886b5c2d4cb9cd74fe"
+  integrity sha512-uvrw1I+sP72PY8xROJQ6CMiGHu9+WJCdi72Q+OiWpQ3sKsIRyIEXimDfgUnkk2vpWVej0JX9fLc87iDmjKE86A==
+
 "@expo-google-fonts/material-symbols@^0.4.1":
   version "0.4.38"
   resolved "https://registry.yarnpkg.com/@expo-google-fonts/material-symbols/-/material-symbols-0.4.38.tgz#88982312fb1a2ff18cd002874aaa9bbee0157727"
@@ -1601,6 +1606,13 @@
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-use-layout-effect/-/react-use-layout-effect-1.1.1.tgz#0c4230a9eed49d4589c967e2d9c0d9d60a23971e"
   integrity sha512-RbJRS4UWQFkzHTTwVymMTUv8EqYhOp8dOOviLj2ugtTiXRaRQS7GLGxZTLL1jWhMeoSCf5zmcZkqTl9IiYfXcQ==
+
+"@react-native-async-storage/async-storage@2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-2.2.0.tgz#a3aa565253e46286655560172f4e366e8969f5ad"
+  integrity sha512-gvRvjR5JAaUZF8tv2Kcq/Gbt3JHwbKFYfmb445rhOj6NUMx3qPLixmDx5pZAyb9at1bYvJ4/eTUipU5aki45xw==
+  dependencies:
+    merge-options "^3.0.4"
 
 "@react-native/assets-registry@0.83.6":
   version "0.83.6"
@@ -3238,15 +3250,15 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-eslint-config-expo@~55.0.1:
-  version "55.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-expo/-/eslint-config-expo-55.0.1.tgz#043875dc177a1186365f7fae6df0e96fc8d8cfe9"
-  integrity sha512-sfVHQ0GKZofMA0zUu5lah7PJ2LdcQwExGK+BLM9YvVPMRf6kezFYCpC6atT1ddX3L9oeCxS6FygDXbvCwjocNg==
+eslint-config-expo@10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-expo/-/eslint-config-expo-10.0.0.tgz#f7d8935018c255dcd1b0e3427a1e5c259a1f7cca"
+  integrity sha512-/XC/DvniUWTzU7Ypb/cLDhDD4DXqEio4lug1ObD/oQ9Hcx3OVOR8Mkp4u6U4iGoZSJyIQmIk3WVHe/P1NYUXKw==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^8.18.2"
     "@typescript-eslint/parser" "^8.18.2"
     eslint-import-resolver-typescript "^3.6.3"
-    eslint-plugin-expo "^1.0.3"
+    eslint-plugin-expo "^1.0.0"
     eslint-plugin-import "^2.30.0"
     eslint-plugin-react "^7.37.3"
     eslint-plugin-react-hooks "^5.1.0"
@@ -3286,7 +3298,7 @@ eslint-module-utils@^2.12.1:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-expo@^1.0.3:
+eslint-plugin-expo@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/eslint-plugin-expo/-/eslint-plugin-expo-1.0.3.tgz#952722b4491fe46814856dbb7928b1a912dd0dc5"
   integrity sha512-C1v9NPvpDET36+7Klpp/+53Jl+VzOfpbDxpKtL/pAPhCDwTX0kW6Swo425PT0uc4AMT5jpQbB7hSKFjKOGMl4A==
@@ -3502,6 +3514,13 @@ expo-font@~55.0.7:
   dependencies:
     fontfaceobserver "^2.1.0"
 
+expo-font@~55.0.8:
+  version "55.0.8"
+  resolved "https://registry.yarnpkg.com/expo-font/-/expo-font-55.0.8.tgz#e961905054c2246ca74f82489d9885da948b381a"
+  integrity sha512-WyP75pnKqhLNktYwDn3xKAUNt5rLihRDv8XWGhhz6VEhVqypixpT86NA3uGtiDTlM3gGjhrYCY7o7ypXgCUOZg==
+  dependencies:
+    fontfaceobserver "^2.1.0"
+
 expo-glass-effect@^55.0.11, expo-glass-effect@~55.0.11:
   version "55.0.11"
   resolved "https://registry.yarnpkg.com/expo-glass-effect/-/expo-glass-effect-55.0.11.tgz#23a3ba71e5f740d6ae557f4298f6abdb030da2f8"
@@ -3518,6 +3537,11 @@ expo-keep-awake@~55.0.8:
   version "55.0.8"
   resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-55.0.8.tgz#007e9ab9508c6e9dc606be6ceb7bbd2036c7ac58"
   integrity sha512-PfIpMfM+STOBwkR5XOE+yVtER86c44MD+W8QD8JxuO0sT9pF7Y1SJYakWlpvX8xsGA+bjKLxftm9403s9kQhKA==
+
+expo-linear-gradient@~55.0.14:
+  version "55.0.14"
+  resolved "https://registry.yarnpkg.com/expo-linear-gradient/-/expo-linear-gradient-55.0.14.tgz#a7714e3b94223a1d1cea21bc24e5c8ecbfdce823"
+  integrity sha512-n01A9P0ZebRo8Rm4QHYEjMR8z4Y6MBc8uVnT8NB9cOJislvEmz2o2WQJoK6RD7FjoeFEW8KkRtggK7fQ3h7KIg==
 
 expo-linking@~55.0.15:
   version "55.0.15"
@@ -4307,6 +4331,11 @@ is-number@^7.0.0:
   resolved "https://registry.yarnpkg.com/is-number/-/is-number-7.0.0.tgz#7535345b896734d5f80c4d06c50955527a14f12b"
   integrity sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==
 
+is-plain-obj@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/is-plain-obj/-/is-plain-obj-2.1.0.tgz#45e42e37fccf1f40da8e5f76ee21515840c09287"
+  integrity sha512-YWnfyRwxL/+SsrWYfOpUtz5b3YD+nyfkHvjbcanzk8zgyO4ASD67uVMRt8k5bM4lLMDnXfriRhOpemw+NfT1eA==
+
 is-regex@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/is-regex/-/is-regex-1.2.1.tgz#76d70a3ed10ef9be48eb577887d74205bf0cad22"
@@ -4795,6 +4824,13 @@ memoize-one@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-6.0.0.tgz#b2591b871ed82948aee4727dc6abceeeac8c1045"
   integrity sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw==
+
+merge-options@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/merge-options/-/merge-options-3.0.4.tgz#84709c2aa2a4b24c1981f66c179fe5565cc6dbb7"
+  integrity sha512-2Sug1+knBjkaMsMgf1ctR1Ujx+Ayku4EdJN4Z+C2+JzoeF7A3OZ9KM2GY0CpQS51NR61LTurMJrRKPhSs3ZRTQ==
+  dependencies:
+    is-plain-obj "^2.1.0"
 
 merge-stream@^2.0.0:
   version "2.0.0"
@@ -6899,3 +6935,8 @@ zod@^3.25.76:
   version "3.25.76"
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.25.76.tgz#26841c3f6fd22a6a2760e7ccb719179768471e34"
   integrity sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==
+
+zustand@^5.0.13:
+  version "5.0.13"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-5.0.13.tgz#06995c126e8903cd27100af04da91c36ae3051ed"
+  integrity sha512-efI2tVaVQPqtOh114loML/Z80Y4NP3yc+Ff0fYiZJPauNeWZeIp/bRFD7I9bfmCOYBh/PHxlglQ9+wvlwnPikQ==
