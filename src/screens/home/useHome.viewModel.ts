@@ -1,3 +1,6 @@
+import { useState } from "react";
+
 export const useHome = () => {
-  return {};
+  const [loading, setLoading] = useState(false);
+  return { loading, setLoading };
 };
