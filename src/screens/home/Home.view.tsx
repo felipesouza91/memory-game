@@ -8,12 +8,17 @@ import HomeHeader from "./components/HomeHeader";
 import { useHome } from "./useHome.viewModel";
 
 const HomeView: React.FC<ReturnType<typeof useHome>> = () => {
+  const { selectedDifficulty, setSelectedDifficulty, handleSelectedChalange } =
+    useHome();
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         <HomeHeader />
-        <DifficultySelectionView />
-        <ChallangesList />
+        <DifficultySelectionView
+          selectedDifficulty={selectedDifficulty}
+          setSelectedDifficulty={setSelectedDifficulty}
+        />
+        <ChallangesList handleSelectedChalange={handleSelectedChalange} />
       </View>
     </SafeAreaView>
   );

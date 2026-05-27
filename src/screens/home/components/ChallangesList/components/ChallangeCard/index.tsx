@@ -9,9 +9,13 @@ import { Pressable, StyleSheet, View } from "react-native";
 import Animated from "react-native-reanimated";
 interface ChallangeCardParams {
   data: ChallengeTheme;
+  handleSelectedChalange: (themeId: string) => void;
 }
 
-const ChallangeCard: React.FC<ChallangeCardParams> = ({ data }) => {
+const ChallangeCard: React.FC<ChallangeCardParams> = ({
+  data,
+  handleSelectedChalange,
+}) => {
   const pressAnimation = usePressAnimation();
   return (
     <LinearGradient
@@ -22,6 +26,7 @@ const ChallangeCard: React.FC<ChallangeCardParams> = ({ data }) => {
     >
       <Animated.View style={pressAnimation.animatedStyle}>
         <Pressable
+          onPress={() => handleSelectedChalange(data.id)}
           onPressIn={pressAnimation.onPressIn}
           onPressOut={pressAnimation.onPressOut}
           style={styles.challangeContent}

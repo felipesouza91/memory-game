@@ -1,5 +1,30 @@
 import { colors, gradients } from "@/constants/colors";
 import { ChallengeTheme } from "../interfaces/challenge";
+import { Difficulty } from "../interfaces/difficulty";
+
+export interface DifficultyConfig {
+  difficulty: Difficulty;
+  timeLimit: number;
+  estimedTime: string;
+}
+
+export const difficultyConfigs: Record<Difficulty, DifficultyConfig> = {
+  Fácil: {
+    difficulty: "Fácil",
+    timeLimit: 300,
+    estimedTime: "5 min",
+  },
+  Médio: {
+    difficulty: "Médio",
+    timeLimit: 240,
+    estimedTime: "4 min",
+  },
+  Difícil: {
+    difficulty: "Difícil",
+    timeLimit: 30,
+    estimedTime: "3 min",
+  },
+};
 
 export const challengeTheme: ChallengeTheme[] = [
   {

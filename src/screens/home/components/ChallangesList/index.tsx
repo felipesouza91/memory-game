@@ -5,7 +5,13 @@ import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import ChallangeCard from "./components/ChallangeCard";
 
-const ChallangesList: React.FC = () => {
+interface ChallangesListParams {
+  handleSelectedChalange: (themeId: string) => void;
+}
+
+const ChallangesList: React.FC<ChallangesListParams> = ({
+  handleSelectedChalange,
+}) => {
   return (
     <View>
       <AppText style={styles.sectionTitle}>Desafios disponiveis</AppText>
@@ -13,7 +19,12 @@ const ChallangesList: React.FC = () => {
         data={challengeTheme}
         keyExtractor={(item) => item.id}
         contentContainerStyle={{ gap: 10, marginTop: 20 }}
-        renderItem={({ item }) => <ChallangeCard data={item} />}
+        renderItem={({ item }) => (
+          <ChallangeCard
+            data={item}
+            handleSelectedChalange={handleSelectedChalange}
+          />
+        )}
       />
     </View>
   );
