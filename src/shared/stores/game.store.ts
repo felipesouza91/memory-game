@@ -28,7 +28,7 @@ interface GameStore extends GameState {
   hideAllCards: () => void;
 }
 
-const INITIAL_DATA = {
+export const useGameStore = create<GameStore>((set, get) => ({
   status: "idle" as GameStatus,
   challange: null,
   cards: [],
@@ -37,10 +37,6 @@ const INITIAL_DATA = {
   startedAt: null,
   timeRemaing: 0,
   _timeId: null,
-};
-
-export const useGameStore = create<GameStore>()((set, get) => ({
-  ...INITIAL_DATA,
 
   initGame: (challange: Challange) => {
     const gameState = GameService.initializeGame(challange);
@@ -56,17 +52,39 @@ export const useGameStore = create<GameStore>()((set, get) => ({
     const newState = GameService.resetMissmatchedCards(currentState);
     set(newState);
   },
-  selectCard: (cardId: string) => {},
+  selectCard: (cardId: string) => {
+    const currentState = get();
+    const { action, newState } = GameService.selectCard(currentState, cardId);
+    set(newState);
+    switch (action) {
+      case "flip":
+        break;
+      case "invalid":
+        break;
+      case "missmatch": {
+        setTimeout(() => {
+          get().resetMissMatchedCards();
+        }, 1000);
+        break;
+      }
+      case "match": {
+        if (newState.status === "finished") {
+          setTimeout(() => get().finishGame(), 500);
+        }
+        break;
+      }
+    }
+  },
   startGame: () => {
     const currentState = get();
     const newState = GameService.startGame(currentState);
     set(newState);
+    get().startTimer();
   },
 
   tick: () => {
     const currentState = get();
     const newState = GameService.tick(currentState);
-
     set(newState);
 
     if (newState.status === "timeout") {
@@ -75,6 +93,7 @@ export const useGameStore = create<GameStore>()((set, get) => ({
   },
   startTimer: () => {
     const currentState = get();
+
     if (currentState._timeId) {
       clearInterval(currentState._timeId);
     }
@@ -116,7 +135,16 @@ export const useGameStore = create<GameStore>()((set, get) => ({
   },
   clearGame: () => {
     get().stopTimer();
-    set(INITIAL_DATA);
+    set({
+      status: "idle" as GameStatus,
+      challange: null,
+      cards: [],
+      selectedCards: [],
+      timeElapsed: 0,
+      startedAt: null,
+      timeRemaing: 0,
+      _timeId: null,
+    });
   },
 
   previewAllCards: () => {

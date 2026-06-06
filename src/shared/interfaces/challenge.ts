@@ -1,6 +1,8 @@
+import { ImageSourcePropType } from "react-native";
+
 export interface Card {
   name: string;
-  image?: ReturnType<typeof require>;
+  image: ImageSourcePropType;
 }
 
 export interface ChallengeTheme {

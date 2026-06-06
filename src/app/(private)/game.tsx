@@ -1,12 +1,10 @@
+import GameView from "@/screens/game/Game.view";
+import { useGame } from "@/screens/game/useGame.viewModel";
 import React from "react";
-import { Text, View } from "react-native";
 
 const Game: React.FC = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Game</Text>
-    </View>
-  );
+  const viewModel = useGame();
+  return <GameView {...viewModel} />;
 };
 
 export default Game;
