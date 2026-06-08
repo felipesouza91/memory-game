@@ -3,6 +3,7 @@ import { colors } from "@/constants/colors";
 import AppText from "@/shared/components/AppText";
 import { useAuthStore } from "@/shared/stores/auth.store";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import React from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 import Animated from "react-native-reanimated";
@@ -30,7 +31,7 @@ const HomeHeader: React.FC = () => {
             style={[styles.trophyContainer, pressAnimatedStyle.animatedStyle]}
             onPressIn={pressAnimatedStyle.onPressIn}
             onPressOut={pressAnimatedStyle.onPressOut}
-            onPress={() => console.log("teste")}
+            onPress={() => router.push("/(private)/history")}
           >
             <MaterialCommunityIcons
               name="trophy-outline"

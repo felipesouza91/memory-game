@@ -1,12 +1,10 @@
+import HistoryView from "@/screens/history/History.view";
+import { useHistory } from "@/screens/history/useHistory.viewModel";
 import React from "react";
-import { Text, View } from "react-native";
 
 const History: React.FC = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>History</Text>
-    </View>
-  );
+  const viewModel = useHistory();
+  return <HistoryView {...viewModel} />;
 };
 
 export default History;

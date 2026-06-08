@@ -6,6 +6,7 @@ import {
 } from "@/animations/utils/animation.utils";
 import { Difficulty } from "@/shared/interfaces/difficulty";
 import { useGameStore } from "@/shared/stores/game.store";
+import { useRankingStore } from "@/shared/stores/ranking.store";
 import { challengeTheme, difficultyConfigs } from "@/shared/utils/challange";
 import { createSequence } from "@/shared/utils/sequence";
 import { router, useLocalSearchParams } from "expo-router";
@@ -33,9 +34,14 @@ export const useGame = () => {
     clearGame,
     pauseGame,
     resumeGame,
+    timeElapsed,
+    challange,
   } = useGameStore();
+
   const { entryAnimationType, setShouldAnimate, setEntryAnimationType } =
     useAnimationStore();
+
+  const { addScore } = useRankingStore();
 
   const [visibleCountdown, setVisibleCountdown] = useState<boolean>(
     status === "countdown",
@@ -84,6 +90,13 @@ export const useGame = () => {
   useEffect(() => {
     if (status === "finished") {
       setShowVictoryModal(true);
+      if (challange) {
+        addScore({
+          category: challange.title,
+          difficulty: challange.difficult,
+          time: timeElapsed,
+        });
+      }
     }
     if (status === "timeout") {
       createSequence()
@@ -91,7 +104,7 @@ export const useGame = () => {
         .then(() => setIsTimeoutModalVisible(true))
         .run();
     }
-  }, [status]);
+  }, [addScore, challange, status, timeElapsed]);
 
   const handleGoBack = () => {
     router.back();
@@ -144,10 +157,11 @@ export const useGame = () => {
   }, [pauseGame, status]);
 
   const handleConfirmationExit = useCallback(() => {
+    clearGame();
+
     setShowExitModal(false);
-    resetGame();
     router.replace("/(private)/home");
-  }, [resetGame]);
+  }, []);
 
   const handleCancelExit = useCallback(() => {
     resumeGame();
@@ -155,8 +169,10 @@ export const useGame = () => {
   }, [resumeGame]);
 
   const handleGoHistory = useCallback(() => {
-    router.replace("/(private)/history");
+    clearGame();
+
     setShowVictoryModal(false);
+    router.push("/(private)/history");
   }, []);
 
   return {
